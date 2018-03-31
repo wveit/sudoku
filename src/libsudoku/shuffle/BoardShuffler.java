@@ -121,7 +121,9 @@ public class BoardShuffler {
         Validator validator = new BasicValidator();
         MaskSeedMaker seed = new MaskSeedMaker();
         
-        Board board = seed.getMaskSeed(Difficulty.EASY);
+        //Board board = seed.getMaskSeed(Difficulty.EASY);
+        Board board = new Board();
+        board = solver.solve(board);
         board.print();
         shuffler.shuffle(board);
         board.print();
@@ -136,7 +138,7 @@ public class BoardShuffler {
     }
 
     private final static int[] COORD_2_3X3 = {0, 3, 6};
-    private int minRandomMoves = 100;
-    private int maxRandomMoves = 101;
+    private int minRandomMoves = 10000;
+    private int maxRandomMoves = 10001;
     private Random random = new Random();
 }
